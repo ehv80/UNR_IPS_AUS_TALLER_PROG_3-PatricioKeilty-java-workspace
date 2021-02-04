@@ -1,0 +1,42 @@
+Temas orientativos para el exámen de Taller 3
+---------------------------------------------
+nota: falta agregar los temas vistos con Federico: Applets, JDBC, Hibernate
+
+
+Introducción a la WEB
+---------------------
+
+Cáp. 13 - "Building Java Enterprise Systems with J2EE" - CD c/softy tutoriales taller 3
+
+* URLs - cómo se utilizan, para que sirven? que partes la conforman?
+* URL encoding - para qué se emplea? 
+* HTTP - que tipo de protocolo es? (con estado-sin estado)
+* métodos HTTP: GET , POST - de qué manera se utiliza? cómo ese el tratamiento de los parámetros 
+  cómo se conforman los HEADERS y BODY HTTP en caso de un GET y un POST?
+* MIME types - qué son? para que sirven? dar ejemplos
+* códigos de error HTTP - los que empiezan con 2xx? los 4xx? los 5xx? 
+  descripción de los mas comunes
+* HTML : ejemplos de código HTML, FORMs HTML - atributos principales: ACTION, METHOD 
+  para que se usan? cómo se emplean?
+  cuando está bien formado el código HTML  - estructura gral de un HTML
+
+Java Servlets
+-------------
+
+ref. pdfs del 1*.pdf al 8*.pdf bajo la carpeta "Bibliografía y tutoriales/Servelts y JSPs/" - CD c/softy tutoriales taller 3
+
+* comparar servlets con CGI: diferencias, ventajas de una respecto de la otra
+* jerarquia de las clases de paquetes javax.servlet.** , HttpServlet - métodos principales y su uso
+* ejemplo sencillo de una implementación de Servlet: tener idea del código que involucra -
+  cómo se obtiene la salida (out) , como se obtiene los parámetros de inicialización del servlet
+* ciclo de vida de un servlet: métodos init(), destroy() - cómo se crea ? cómo se recicla?
+* mapeo de servlets a URLs : usando el fichero web.xml (descriptor de deploy)
+  tags <servlet/> <servlet-mapping/> <init-param/> <context-param/>
+* métodos doGet(), doPost(), service(), cuándo se invocan, hay alguna relación de llamadas entre ellos?
+* manejo de session: cuál es su propósito? cómo se emplea? ejemplos de uso de métodos 
+  getAttribute(), setAttribute()
+* llamar a un servlet desde otro servlet: cómo se emplea el requestDispatcher? qué métodos tiene disponibles?
+  ** incluir salida generada por otro servlet ( .include())
+  ** pasarle el control a otro servlet (.forward())
+* manejo de cookies: API básico
+

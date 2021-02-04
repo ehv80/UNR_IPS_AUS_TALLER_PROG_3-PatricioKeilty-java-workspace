@@ -1,0 +1,145 @@
+ PASOS PARA INSTALAR   apache-tomcat-5.5.20.tar.gz   en Debian GNU/Linux 4.0 Etch:
+
+ 1º Obtener el archivo apache-tomcat-5.5.20.tar.gz 
+    desde el CD-TALLER3, o la siguiente url:
+ http://archive.apache.org/dist/tomcat/tomcat-5/v5.5.20/bin/apache-tomcat-5.5.20.tar.gz
+
+ 2º Ubicarlo en algún directorio para descomprimirlo:
+
+    shell> cp apache-tomcat-5.5.20.tar.gz /data
+    
+    shell> cd /data
+    
+    shell> tar zxvf apache-tomcat-5.5.20.tar.gz
+ 
+ 3º Editar el archivo:	/home/<user>/.bashrc 
+    para configurar las variables de ambiente necesarias para su funcionamiento
+    las cuales hacen referencia a la ruta donde está el JDK y el JRE:
+
+    shell> vi /home/<user>/.bashrc
+
+       # PARA APACHE-TOMCAT-5.5.20: SETEAR LA VARIABLE DE AMBIENTE: JAVA_HOME
+       export JAVA_HOME='/data/jdk1.6.0_02'
+
+       # PARA APACHE-TOMCAT-5.5.20: SETEAR LA VARIABLE DE AMBIENTE: JRE_HOME
+       export JRE_HOME='/data/jdk1.6.0_02/jre'
+
+ 4º Para iniciarlo utilizar el script:
+    
+    shell> /data/apache-tomcat-5.5.20/bin/startup.sh
+
+ 5º Para veriicar que está funcionando:
+    Usar un navegador web para observar las siguientes urls:
+
+       http://localhost:8080
+
+       http://localhost:8080/tomcat-docs
+ 
+ 6º Para detenerlo utilizar:
+
+    shell> /data/apache-tomcat-5.5.20/bin/shutdown.sh
+ 
+ 7º Hay que editar un archivo para definir usuarios, roles, y contraseñas:
+
+    shell> vi /data/apache-tomcat-5.5.20/conf/tomcat-users.xml
+
+       Debe quedar similar al contenido que se muestra a continuación:
+       "
+       <?xml version='1.0' encoding='utf-8'?>
+       <tomcat-users>
+          <role rolename="manager"/>
+	  <role rolename="standard"/>
+	  <role rolename="tomcat"/>
+	  <role rolename="role1"/>
+	  <user username="both" password="tomcat" roles="tomcat,role1"/>
+	  <user username="tomcat" password="tomcat" roles="tomcat"/>
+	  <user username="admin" password="4dm1nc4t" roles="standard,manager"/>
+	  <user username="role1" password="tomcat" roles="role1"/>
+       </tomcat-users>
+
+ 8º Hay un paquete aparte: apache-tomcat-5.5.20-admin.tar.gz
+    que se puede descargar desde:
+ http://archive.apache.org/dist/tomcat/tomcat-5/v5.5.20/bin/apache-tomcat-5.5.20-admin.tar.gz
+    Posee varios archivos que vamos a ubicar en sus respectivas ubicaciones, como se detalla:
+    Suponiendo que el archivo descargado está en: /data/Descargas/apache-tomcat-5.5.20-admin.tar.gz
+
+   shell> cd /data/Descargas
+   
+   Lo descomprimimos:
+   shell> tar zxvf apache-tomcat-5.5.20-admin.tar.gz
+
+   Como resultado obtenemos el directorio: /data/Descargas/apache-tomcat-5.5.20
+   
+   shell> cd /data/Descargas/apache-tomcat-5.5.20
+
+   Copiamos el archivo "admin.xml":
+   shell> cp conf/Catalina/localhost/admin.xml /data/apache-tomcat-5.5.20/conf/Catalina/localhost/
+
+   Observemos que hay:
+   
+   shell> ls
+   conf  LICENSE  NOTICE  RELEASE-NOTES  server
+
+   Los siguientes archivos no hace falta copiarlos porque son idénticos a los que ya está en el directorio
+   /data/apache-tomcat-5.5.20 , estos son:
+      - LICENSE
+      - NOTICE
+      - RELEASE-NOTES
+   Así que seguiremos con el directorio:   /data/Descargas/apache-tomcat-5.5.20/server/webapps
+
+   shell> cd server/webapps
+
+   shell> ls
+   admin
+
+   Contiene solo un directorio que se debe copiar al mismo lugar dentro del directorio de apache-tomcat:
+   shell> cp -rvf ./admin /data/apache-tomcat-5.5.20/server/webapps/
+
+ 9º Vamos a editar el archivo: /data/apache-tomcat-5.5.20/conf/Catalina/localhost/admin.xml
+    Para descomentarlo y que luzca como el siguiente contenido:
+    
+    shell> vi /data/apache-tomcat-5.5.20/conf/Catalina/localhost/admin.xml
+
+       "
+       <!--
+           Context configuration file for the Tomcat Administration Web App
+	   $Id: admin.xml 303123 2004-08-26 17:03:35Z remm $
+       -->
+
+       <Context docBase="${catalina.home}/server/webapps/admin" privileged="true"
+                antiResourceLocking="false" antiJARLocking="false">
+		
+	  <!-- Uncomment this Valve to limit access to the Admin app to localhost
+	       for obvious security reasons. Allow may be a comma-separated list of 
+	       hosts (or even regular expressions). 
+	  -->
+
+	  <Valve className="org.apache.catalina.valves.RemoteAddrValve" allow="127.0.0.1"/>
+       </Context>
+       "
+
+ 10º También hay que editar el archivo: /data/apache-tomcat-5.5.20/server/webapps/admin/admin.xml
+     para que luzca así:
+
+     shell> vi /data/apache-tomcat-5.5.20/server/webapps/admin/admin.xml
+       "
+       <!--
+           Context configuration file for the Tomcat Administration Web App
+
+           $Id: admin.xml 303123 2004-08-26 17:03:35Z remm $
+       -->
+
+       <Context docBase="${catalina.home}/server/webapps/admin" privileged="true"
+                antiResourceLocking="false" antiJARLocking="false">
+
+	   <!-- Uncomment this Valve to limit access to the Admin app to localhost
+	        for obvious security reasons. Allow may be a comma-separated list of
+	        hosts (or even regular expressions).
+	   -->
+
+	   <Valve className="org.apache.catalina.valves.RemoteAddrValve" allow="127.0.0.1"/>
+
+       </Context>
+       "
+
+ 11º APARENTEMENTE ES TODO AMIGOS... :-)
