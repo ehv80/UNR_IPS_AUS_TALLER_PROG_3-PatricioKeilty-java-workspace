@@ -1,0 +1,1263 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0094)http://developer.java.sun.com/developer/onlineTraining/Database/JDBCShortCourse/jdbc/jdbc.html -->
+<HTML><HEAD><TITLE>JDBC Short Course: Java Database Programming</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META content="MageLang Institute" name=AUTHOR>
+<META content=10/15/96 name=CREATED>
+<META content=Editorial/JDC name=OWNER>
+<META content="@(#)jdbc.src&#9;1.10 09/21/99  JDC" name=revision>
+<STYLE type=text/css>CODE {
+	FONT-FAMILY: Courier, Monospace; FONT-SIZE: 12pt
+}
+PRE {
+	FONT-FAMILY: Courier, Monospace; FONT-SIZE: 11pt
+}
+</STYLE>
+<!-- Start Body Insert-->
+<META content="MSHTML 5.00.2314.1000" name=GENERATOR></HEAD>
+<BODY aLink=#ff0000 bgColor=#ffffff link=#0000ff text=#000000 vLink=#660066><!-- End Body Insert--><!-- Start PageTop Insert -->
+<TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR align=middle vAlign=top>
+    <TD align=left width=157><IMG alt="" height=40 
+      src="JDBC Short Course Java Database Programming_archivos/pixel.gif" 
+      width=40> <A href="http://java.sun.com/index.html"><IMG 
+      alt="Java Technology Home Page" border=0 height=88 
+      src="JDBC Short Course Java Database Programming_archivos/javalogo52x88.gif" 
+      width=52></A> <BR><IMG alt="" height=1 
+      src="JDBC Short Course Java Database Programming_archivos/pixel.gif" 
+      width=157></TD>
+    <TD>
+      <FORM action=http://search.java.sun.com/query.html method=get name=seek1>
+      <TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+        <TBODY>
+        <TR>
+          <TD align=right><IMG alt="" height=14 
+            src="JDBC Short Course Java Database Programming_archivos/stripelt.gif" 
+            width=6></TD>
+          <TD width="100%">
+            <TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+              <TBODY>
+              <TR>
+                <TD bgColor=#cc9966 width="100%"><IMG alt="" height=2 
+                  src="JDBC Short Course Java Database Programming_archivos/pixel.gif" 
+                  width=1></TD></TR>
+              <TR>
+                <TD><IMG alt="" height=2 
+                  src="JDBC Short Course Java Database Programming_archivos/pixel.gif" 
+                  width=1></TD></TR>
+              <TR>
+                <TD bgColor=#cc9966><IMG alt="" height=2 
+                  src="JDBC Short Course Java Database Programming_archivos/pixel.gif" 
+                  width=1></TD></TR>
+              <TR>
+                <TD><IMG alt="" height=2 
+                  src="JDBC Short Course Java Database Programming_archivos/pixel.gif" 
+                  width=1></TD></TR>
+              <TR>
+                <TD bgColor=#cc9966><IMG alt="" height=2 
+                  src="JDBC Short Course Java Database Programming_archivos/pixel.gif" 
+                  width=1></TD></TR>
+              <TR>
+                <TD><IMG alt="" height=2 
+                  src="JDBC Short Course Java Database Programming_archivos/pixel.gif" 
+                  width=1></TD></TR>
+              <TR>
+                <TD bgColor=#cc9966><IMG alt="" height=2 
+                  src="JDBC Short Course Java Database Programming_archivos/pixel.gif" 
+                  width=1></TD></TR></TBODY></TABLE></TD>
+          <TD align=left><IMG alt="" height=14 
+            src="JDBC Short Course Java Database Programming_archivos/stripert.gif" 
+            width=6></TD>
+          <TD>
+            <TABLE border=0 cellPadding=0 cellSpacing=0>
+              <TBODY>
+              <TR>
+                <TD vAlign=center><A 
+                  href="http://java.sun.com/a-z/index.html"><IMG alt="A-Z Index" 
+                  border=0 height=11 
+                  src="JDBC Short Course Java Database Programming_archivos/azindex.gif" 
+                  width=72></A></TD>
+                <TD vAlign=center><FONT face=Helvetica size=1><INPUT 
+                  maxLength=128 name=qt size=15></FONT></TD>
+                <TD vAlign=center><INPUT alt=Search border=0 height=14 
+                  src="JDBC Short Course Java Database Programming_archivos/search.button.gif" 
+                  type=image value=search 
+        width=55></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></FORM>
+      <P>
+      <TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+        <TBODY>
+        <TR vAlign=top>
+          <TD width="100%"><IMG alt="" height=18 
+            src="JDBC Short Course Java Database Programming_archivos/chiclet.row.gif" 
+            width=55></TD>
+          <TD align=right rowSpan=4 width=152><A 
+            href="http://developer.java.sun.com/developer/index.html"><IMG 
+            alt="Java Developer Connection(SM)" border=0 height=42 
+            src="JDBC Short Course Java Database Programming_archivos/developer.connection.header.gif" 
+            width=319></A></TD></TR>
+        <TR vAlign=top>
+          <TD bgColor=#ffffff height=1 width="100%"><IMG alt="" height=1 
+            src="JDBC Short Course Java Database Programming_archivos/pixel.gif" 
+            width=1></TD></TR>
+        <TR vAlign=top>
+          <TD bgColor=#cc9966 height=1 width="100%"><IMG alt="" height=1 
+            src="JDBC Short Course Java Database Programming_archivos/pixel.gif" 
+            width=1></TD></TR>
+        <TR vAlign=top>
+          <TD><A 
+            href="http://developer.java.sun.com/developer/onlineTraining/"><IMG 
+            alt="Online Training" border=0 height=22 
+            src="JDBC Short Course Java Database Programming_archivos/online-training.gif" 
+            width=165></A></TD></TR></TBODY></TABLE></P></TD></TR></TBODY></TABLE><!-- End PageTop Insert --><!-- Start NavBar Insert -->
+<TABLE align=left bgColor=#ffffff border=0 cellPadding=3 cellSpacing=0 
+width=157><!-- tab categories -->
+  <TBODY>
+  <TR>
+    <TD><A href="http://java.sun.com/products/"><IMG 
+      alt="Downloads, APIs, Documentation" border=0 height=15 
+      src="JDBC Short Course Java Database Programming_archivos/side.tab.products.gif" 
+      width=130></A></TD></TR>
+  <TR>
+    <TD><A href="http://developer.java.sun.com/developer/index.html"><IMG 
+      alt="Java Developer Connection" border=0 height=15 
+      src="JDBC Short Course Java Database Programming_archivos/side.tab.developer.gif" 
+      width=130></A></TD></TR>
+  <TR>
+    <TD><A href="http://developer.java.sun.com/developer/infodocs/"><IMG 
+      alt="Tutorials, Tech Articles, Training" border=0 height=15 
+      src="JDBC Short Course Java Database Programming_archivos/side.tab.docs.gif" 
+      width=130></A></TD></TR>
+  <TR>
+    <TD><A 
+      href="http://developer.java.sun.com/developer/support/index.html"><IMG 
+      alt="Online Support" border=0 height=15 
+      src="JDBC Short Course Java Database Programming_archivos/side.tab.support.gif" 
+      width=130></A></TD></TR>
+  <TR>
+    <TD><A 
+      href="http://developer.java.sun.com/developer/community/index.html"><IMG 
+      alt="Community Discussion" border=0 height=15 
+      src="JDBC Short Course Java Database Programming_archivos/side.tab.community.gif" 
+      width=130></A></TD></TR>
+  <TR>
+    <TD><A href="http://java.sun.com/industry/"><IMG 
+      alt="News &amp; Events from Everywhere" border=0 height=15 
+      src="JDBC Short Course Java Database Programming_archivos/side.tab.news.gif" 
+      width=130></A></TD></TR>
+  <TR>
+    <TD><A href="http://java.sun.com/solutions"><IMG 
+      alt="Products from Everywhere" border=0 height=15 
+      src="JDBC Short Course Java Database Programming_archivos/side.tab.solutions.gif" 
+      width=130></A></TD></TR>
+  <TR>
+    <TD><A href="http://java.sun.com/casestudies"><IMG 
+      alt="How Java Technology is Used Worldwide" border=0 height=15 
+      src="JDBC Short Course Java Database Programming_archivos/side.tab.case.gif" 
+      width=130></A></TD></TR>
+  <TR>
+    <TD>
+      <DIV align=right><A 
+      href="http://developer.java.sun.com/servlet/PrintPageServlet"><IMG 
+      alt="Print Button" border=0 height=25 
+      src="JDBC Short Course Java Database Programming_archivos/printbutton.gif" 
+      width=155></A> </DIV></TD></TR>
+  <TR>
+    <TD>&nbsp;</TD></TR><!-- End NavBar Insert --><!-- START SUB-NAV -->
+  <TR>
+    <TD><!-- INSERT SUB-NAV INFO --></TD></TR><!-- END SUB-NAV --></TBODY></TABLE>
+<TABLE border=0 cellPadding=0 cellSpacing=0>
+  <TBODY>
+  <TR>
+    <TD><FONT face="Verdana, Arial, Helvetica, sans-serif"><!-- Template Version 2.0 --><!-- ================== --><!-- Start Main Content --><!-- ================== -->
+      <TABLE border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face="Verdana, Arial, Helvetica, sans-serif">
+            <DIV align=right><FONT size=-1><A 
+            href="http://developer.java.sun.com/developer/onlineTraining/index.html">Training 
+            Index</A></FONT> 
+            <H2>JDBC Short Course<BR><FONT size=-1>Java Database 
+            Programming</FONT></H2>
+            <H3><EM>by <A href="http://www.magelang.com/" target=_blank>Magelang 
+            Institute</A></EM></H3><FONT size=-1>[<A 
+            href="http://developer.java.sun.com/developer/onlineTraining/Database/JDBCShortCourse/contents.html">Table 
+            of Contents</A>]</FONT></DIV>
+            <P>In this course, you will learn: 
+            <UL>
+              <LI><FONT face="Verdana, Arial, Helvetica, sans-serif">What Java 
+              Database Connectivity (JDBC<FONT size=-2><SUP>TM</SUP></FONT>) and 
+              Open Database Connectivity (ODBC) are </FONT>
+              <LI><FONT face="Verdana, Arial, Helvetica, sans-serif">How to use 
+              JDBC to connect to a relational database </FONT>
+              <LI><FONT face="Verdana, Arial, Helvetica, sans-serif">How to 
+              execute SQL queries on the database </FONT>
+              <LI><FONT face="Verdana, Arial, Helvetica, sans-serif">How to 
+              handle the results of a query </FONT>
+              <LI><FONT face="Verdana, Arial, Helvetica, sans-serif">How to view 
+              the structure of a database using metadata </FONT></LI></UL>
+            <H3><A name=jdIntro>Introduction to JDBC</A></H3>
+            <P>SQL is a language used to create, manipulate, examine, and manage 
+            relational databases. Because SQL is an application-specific 
+            language, a single statement can be very expressive and can initiate 
+            high-level actions, such as sorting and merging data. SQL was 
+            standardized in 1992 so that a program could communicate with most 
+            database systems without having to change the SQL commands. 
+            Unfortunately, you must connect to a database before sending SQL 
+            commands, and each database vendor has a different interface, as 
+            well as different extensions of SQL. Enter ODBC. 
+            <P>ODBC, a C-based interface to SQL-based database engines, provides 
+            a consistent interface for communicating with a database and for 
+            accessing database metadata (information about the database system 
+            vendor, how the data is stored, and so on). Individual vendors 
+            provide specific drivers or "bridges" to their particular database 
+            management system. Consequently, thanks to ODBC and SQL, you can 
+            connect to a database and manipulate it in a standard way. It is no 
+            surprise that, although ODBC began as a PC standard, it has become 
+            nearly an industry standard. 
+            <P>Though SQL is well suited for manipulating databases, it is 
+            unsuitable as a general application language and programmers use it 
+            primarily as a means of communicating with databases--another 
+            language is needed to feed SQL statements to a database and process 
+            results for visual display or report generation. Unfortunately, you 
+            cannot easily write a program that will run on multiple platforms 
+            even though the database connectivity standardization issue has been 
+            largely resolved. For example, if you wrote a database client in 
+            C++, you would have to totally rewrite the client for each platform; 
+            that is to say, your PC version would not run on a Macintosh. There 
+            are two reasons for this. First, C++ as a language is not portable 
+            for the simple reason that C++ is not completely specified, for 
+            example, how many bits does an <CODE>int</CODE> hold? Second and 
+            more importantly, support libraries such as network access and GUI 
+            libraries are different on each platform. Enter Java. 
+            <P>You can run a Java program on any Java-enabled platform without 
+            even recompiling that program. The Java language is completely 
+            specified and, by definition, a Java-enabled platform must support a 
+            known core of libraries. One such library is JDBC, which you can 
+            think of as a Java version of ODBC, and is itself a growing 
+            standard. Database vendors are already busy creating bridges from 
+            the JDBC API to their particular systems. JavaSoft has also provided 
+            a bridge driver that translates JDBC to ODBC, allowing you to 
+            communicate with legacy databases that have no idea that Java 
+            exists. Using Java in conjunction with JDBC provides a truly 
+            portable solution to writing database applications. 
+            <P>The JDBC-ODBC bridge driver is just one of <A 
+            href="http://splash.javasoft.com/jdbc/jdbc.drivers.html">four types 
+            of drivers</A> available to support JDBC connectivity. It comes 
+            packaged with the JDK 1.1 (and eventually with 1.1 browsers), or as 
+            a <A 
+            href="http://splash.javasoft.com/jdbc/#The JDBC Release 1.2">separate 
+            package</A> for use with 1.0 systems. 
+            <H3><A name=jdExample1>A Complete Example</A></H3>
+            <P>Running through a simple, but complete, example will help you 
+            grasp the overall concepts of JDBC. The fundamental issues 
+            encountered when writing any database application are: 
+            <UL>
+              <LI><FONT 
+              face="Verdana, Arial, Helvetica, sans-serif"><STRONG>Creating a 
+              database</STRONG>. You can either create the database outside of 
+              Java, via tools supplied by the database vendor, or via SQL 
+              statements fed to the database from a Java program. </FONT>
+              <LI><FONT 
+              face="Verdana, Arial, Helvetica, sans-serif"><STRONG>Connecting to 
+              an ODBC data source</STRONG>. An ODBC data source is a database 
+              that is registered with the ODBC driver. In Java you can use 
+              either the JDBC to ODBC bridge, or JDBC and a vendor-specific 
+              bridge to connect to the datasource. </FONT>
+              <LI><FONT 
+              face="Verdana, Arial, Helvetica, sans-serif"><STRONG>Inserting 
+              information into a database</STRONG>. Again, you can either enter 
+              data outside of Java, using database-specific tools, or with SQL 
+              statements sent by a Java program. </FONT>
+              <LI><FONT 
+              face="Verdana, Arial, Helvetica, sans-serif"><STRONG>Selectively 
+              retrieving information</STRONG>. You use SQL commands from Java to 
+              get results and then use Java to display or manipulate that data. 
+              </FONT></LI></UL>
+            <H4><A name=jdCreateDB>Creating a Database</A></H4>
+            <P>For this example, consider the scenario of tracking coffee usage 
+            at the MageLang University Cafe. A weekly report must be generated 
+            for University management that includes total coffee sales and the 
+            maximum coffee consumed by a programmer in one day. Here is the 
+            data: 
+            <P align=center><STRONG>Coffee Consumption at <EM>Cafe Jolt</EM>, 
+            MageLang University</STRONG><BR>"Caffeinating the World, one 
+            programmer at a time" 
+            <DIV align=center>
+            <TABLE border=1 cellSpacing=2>
+              <TBODY>
+              <TR>
+                <TH><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">Programmer</FONT></TH>
+                <TH><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">Day</FONT></TH>
+                <TH align=right><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif"># 
+              Cups</FONT></TH></TR>
+              <TR>
+                <TD><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">Gilbert</FONT></TD>
+                <TD><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">Mon</FONT></TD>
+                <TD align=right><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">1</FONT></TD></TR>
+              <TR>
+                <TD><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">Wally</FONT></TD>
+                <TD><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">Mon</FONT></TD>
+                <TD align=right><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">2</FONT></TD></TR>
+              <TR>
+                <TD><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">Edgar</FONT></TD>
+                <TD><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">Tue</FONT></TD>
+                <TD align=right><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">8</FONT></TD></TR>
+              <TR>
+                <TD><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">Wally</FONT></TD>
+                <TD><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">Tue</FONT></TD>
+                <TD align=right><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">2</FONT></TD></TR>
+              <TR>
+                <TD><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">Eugene</FONT></TD>
+                <TD><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">Tue</FONT></TD>
+                <TD align=right><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">3</FONT></TD></TR>
+              <TR>
+                <TD><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">Josephine</FONT></TD>
+                <TD><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">Wed</FONT></TD>
+                <TD align=right><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">2</FONT></TD></TR>
+              <TR>
+                <TD><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">Eugene</FONT></TD>
+                <TD><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">Thu</FONT></TD>
+                <TD align=right><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">3</FONT></TD></TR>
+              <TR>
+                <TD><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">Gilbert</FONT></TD>
+                <TD><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">Thu</FONT></TD>
+                <TD align=right><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">1</FONT></TD></TR>
+              <TR>
+                <TD><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">Clarence</FONT></TD>
+                <TD><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">Fri</FONT></TD>
+                <TD align=right><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">9</FONT></TD></TR>
+              <TR>
+                <TD><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">Edgar</FONT></TD>
+                <TD><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">Fri</FONT></TD>
+                <TD align=right><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">3</FONT></TD></TR>
+              <TR>
+                <TD><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">Josephine</FONT></TD>
+                <TD><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">Fri</FONT></TD>
+                <TD align=right><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">4</FONT></TD></TR></TBODY></TABLE></DIV>
+            <P>To create this database, you can feed SQL statements to an ODBC 
+            data source via the JDBC-ODBC bridge. First, you will have to create 
+            an ODBC data source. You have many choices—you could, for example, 
+            connect an Oracle or Sybase database. For simplicity and to cover 
+            the largest single audience, create a <A 
+            href="http://developer.java.sun.com/developer/onlineTraining/Database/JDBCShortCourse/jdbc/exercises/Setup/index.html">text 
+            file as an ODBC datasource</A> to use for this example. Call this 
+            ODBC data source <CODE>CafeJolt</CODE>. 
+            <P>To enter the data into the <CODE>CafeJolt</CODE> database, create 
+            a Java <STRONG>application</STRONG> that follows these steps: 
+            <OL>
+              <LI><FONT 
+              face="Verdana, Arial, Helvetica, sans-serif"><STRONG>Load the 
+              JDBC-ODBC bridge</STRONG>. You must load a driver that tells the 
+              JDBC classes how to talk to a data source. In this case, you will 
+              need the class <CODE>JdbcOdbcDriver</CODE>: <PRE> 
+Class.forName("sun.jdbc.odbc.JdbcOdbcDriver"); 
+</PRE>This can also be specified from the command line via the 
+              <CODE>jdbc.drivers</CODE> system property: <PRE> 
+java -Djdbc.drivers=sun.jdbc.odbc.JdbcOdbcDriver AProgram 
+</PRE></FONT>
+              <LI><FONT 
+              face="Verdana, Arial, Helvetica, sans-serif"><STRONG>Connect to a 
+              data source</STRONG>. A URL is used to connect to a particular 
+              JDBC data source. See Section 3.1.2 <A 
+              href="http://www.javasoft.com/products/jdk/1.1/docs/guide/jdbc/getstart/connection.doc.html#1000962">URLs 
+              in General USE</A> and 3.1.3 <A 
+              href="http://www.javasoft.com/products/jdk/1.1/docs/guide/jdbc/getstart/connection.doc.html#1000986">JDBC 
+              URLs</A> in the JDBC Guide for more information. Given that you 
+              have loaded the JDBC-ODBC bridge driver, URLs should be in the 
+              following form <CODE>jdbc:odbc:<EM>data-source-name</EM></CODE>. 
+              Using the <CODE>DriverManager</CODE> class, you request a 
+              connection to a URL and the <CODE>DriverManager</CODE> selects the 
+              appropriate driver; here, only the driver 
+              <CODE>JdbcOdbcDriver</CODE> is loaded. <PRE> 
+Connection con = DriverManager.getConnection( 
+	<EM>URL</EM>, 
+	<EM>username</EM>, 
+	<EM>password</EM>); 
+</PRE>
+              <P>Where the <EM>username</EM> and <EM>password</EM> are empty 
+              strings, <CODE>""</CODE>, in this case because text files acting 
+              as ODBC data sources cannot have such attributes.</FONT> 
+              <P></P>
+              <LI><FONT 
+              face="Verdana, Arial, Helvetica, sans-serif"><STRONG>Send SQL 
+              statements to create the table</STRONG>. Ask the connection object 
+              for a <CODE>Statement</CODE> object: <PRE> 
+Statement stmt = con.createStatement(); 
+</PRE>
+              <P>Then, execute the following SQL statement to create a table 
+              called <CODE>JoltData</CODE>. <PRE> 
+create table JoltData ( 
+	programmer varchar (32), 
+	day char (3), 
+	cups integer, 
+	variety varchar (20)); 
+</PRE>
+              <P>The Java code to do this is: <PRE> 
+stmt.execute(	"create table JoltData ("+ 
+		"programmer varchar (32),"+ 
+		"day char (3),"+ 
+		"cups integer);" 
+	    ); 
+</PRE>
+              <P>After you have created the table, you can the insert the 
+              appropriate values such as: </FONT><PRE> 
+insert into JoltData values ('Gilbert', 'Mon', 1); 
+insert into JoltData values ('Wally', 'Mon', 2); 
+insert into JoltData values ('Edgar', 'Tue', 8); 
+... 
+</PRE></LI></OL>Here is the Java source for a <A 
+            href="http://developer.java.sun.com/developer/onlineTraining/Database/JDBCShortCourse/jdbc/code/CreateJoltData.java">complete 
+            application</A> to create table <CODE>JoltData</CODE> and insert the 
+            required rows.
+            <P>Review what you have done so far. After creating a data source 
+            visible to ODBC, you connected to that source via the JDBC-ODBC 
+            bridge and sent a series of SQL statements to create a table called 
+            <CODE>JoltData</CODE> filled with rows of data. You can examine the 
+            contents of your "database" file by looking at file 
+            <CODE>JoltData</CODE> with a text editor. It will look like this: <PRE> 
+"programmer","day","cups" 
+"Gilbert","Mon",1 
+"Wally","Mon",2 
+"Edgar","Tue",8 
+"Wally","Tue",2 
+"Eugene","Tue",3 
+"Josephine","Wed",2 
+"Eugene","Thu",3 
+"Gilbert","Thu",1 
+"Clarence","Fri",9 
+"Edgar","Fri",3 
+"Josephine","Fri",4 
+</PRE>
+            <P>The ODBC-text driver will also create a file called 
+            <CODE>schema.ini</CODE> containing metadata: <PRE> 
+[JoltData] 
+ColNameHeader=True 
+CharacterSet=OEM 
+Format=CSVDelimited 
+Col1=programmer Char Width 32 
+Col2=day Char Width 3 
+Col3=cups Integer 
+</PRE><SUBSUBSECTIONLIST>
+            <H5><A name=jdfirstMager>exercises</A></H5>
+            <OL>
+              <LI><FONT face="Verdana, Arial, Helvetica, sans-serif"><A 
+              href="http://developer.java.sun.com/developer/onlineTraining/Database/JDBCShortCourse/jdbc/exercises/Setup/index.html">Getting 
+              Started</A>. </FONT>
+              <LI><FONT face="Verdana, Arial, Helvetica, sans-serif"><A 
+              href="http://developer.java.sun.com/developer/onlineTraining/Database/JDBCShortCourse/jdbc/exercises/JDBCTestConnect/index.html">Using 
+              JDBCTest</A>. </FONT>
+              <LI><FONT face="Verdana, Arial, Helvetica, sans-serif"><A 
+              href="http://developer.java.sun.com/developer/onlineTraining/Database/JDBCShortCourse/jdbc/exercises/ConnectNoJDBC/index.html">Connecting 
+              to an ODBC datasource without JDBCTest</A>. </FONT></LI></OL>
+            <H4><A name=jdGetInfo>Getting Information from a Database</A></H4>
+            <P>To retrieve information from a database, use SQL 
+            <CODE>select</CODE> statements via the Java 
+            <CODE>Statement.executeQuery</CODE> method, which returns results as 
+            rows of data in a <CODE>ResultSet</CODE> object. The results are 
+            examined row-by-row using the <CODE>ResultSet.next</CODE> and 
+            <CODE>ResultSet.get<EM>XXX</EM></CODE> methods. 
+            <P>Consider how you would obtain the maximum number of cups of 
+            coffee consumed by a programmer in one day. In terms of SQL, one way 
+            to get the maximum value is to sort the table by the 
+            <CODE>cups</CODE> column in descending order. The 
+            <CODE>programmer</CODE> column is selected, so the name attached to 
+            the most coffee consumption can also be printed. Use the SQL 
+            statement: <PRE> 
+SELECT programmer, cups FROM JoltData ORDER BY cups DESC; 
+</PRE>
+            <P>From Java, execute the statement with: <PRE> 
+ResultSet result = stmt.executeQuery(
+  "SELECT programmer, 
+  cups FROM JoltData ORDER BY cups DESC;"); 
+</PRE>
+            <P>The <CODE>cups</CODE> column of the first row of the result set 
+            will contain the largest number of cups: 
+            <DIV align=center>
+            <TABLE border=1 cellSpacing=2>
+              <TBODY>
+              <TR>
+                <TD><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">Clarence</FONT></TD>
+                <TD><FONT 
+                face="Verdana, Arial, Helvetica, sans-serif">9</FONT></TD></TR>
+              <TR>
+                <TD><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">Edgar</FONT></TD>
+                <TD><FONT 
+                face="Verdana, Arial, Helvetica, sans-serif">8</FONT></TD></TR>
+              <TR>
+                <TD><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">Josephine</FONT></TD>
+                <TD><FONT 
+                face="Verdana, Arial, Helvetica, sans-serif">4</FONT></TD></TR>
+              <TR>
+                <TD><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">Eugene</FONT></TD>
+                <TD><FONT 
+                face="Verdana, Arial, Helvetica, sans-serif">3</FONT></TD></TR>
+              <TR>
+                <TD><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">Eugene</FONT></TD>
+                <TD><FONT 
+                face="Verdana, Arial, Helvetica, sans-serif">3</FONT></TD></TR>
+              <TR>
+                <TD><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">Edgar</FONT></TD>
+                <TD><FONT 
+                face="Verdana, Arial, Helvetica, sans-serif">3</FONT></TD></TR>
+              <TR>
+                <TD><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">Wally</FONT></TD>
+                <TD><FONT 
+                face="Verdana, Arial, Helvetica, sans-serif">2</FONT></TD></TR>
+              <TR>
+                <TD><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">Wally</FONT></TD>
+                <TD><FONT 
+                face="Verdana, Arial, Helvetica, sans-serif">2</FONT></TD></TR>
+              <TR>
+                <TD><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">Josephine</FONT></TD>
+                <TD><FONT 
+                face="Verdana, Arial, Helvetica, sans-serif">2</FONT></TD></TR>
+              <TR>
+                <TD><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">Gilbert</FONT></TD>
+                <TD width=50><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">1</FONT></TD></TR>
+              <TR>
+                <TD><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">Gilbert</FONT></TD>
+                <TD><FONT 
+                face="Verdana, Arial, Helvetica, sans-serif">1</FONT></TD></TR></TBODY></TABLE></DIV>
+            <P>Examine the <CODE>ResultSet</CODE> by: 
+            <OL>
+              <LI><FONT 
+              face="Verdana, Arial, Helvetica, sans-serif"><STRONG>"Moving" to 
+              the first row of data</STRONG>. Perform: </FONT><PRE> 
+result.next(); 
+</PRE>
+              <LI><FONT 
+              face="Verdana, Arial, Helvetica, sans-serif"><STRONG>Extracting 
+              data from the columns of that row</STRONG>. Perform: </FONT><PRE> 
+String name = result.getString("programmer"); 
+int cups = result.getInt("cups"); 
+</PRE></LI></OL>
+            <P>The information can be printed easily via: <PRE> 
+System.out.println("Programmer "+name+ 
+	" consumed the most coffee: "+cups+" cups."); 
+</PRE>resulting in the following output: <PRE> 
+Programmer Clarence consumed the most coffee: 9 cups. 
+</PRE>
+            <P>Computing the total sales for the week is a matter of adding up 
+            the <CODE>cups</CODE> column. Use an SQL <CODE>select</CODE> 
+            statement to retrieve the <CODE>cups</CODE> column: <PRE> 
+result = stmt.executeQuery( 
+	"SELECT	cups FROM JoltData;"); 
+</PRE>
+            <P>Peruse the results by calling method <CODE>next</CODE> until it 
+            returns <CODE>false</CODE>, indicating that there are no more rows 
+            of data: <PRE> 
+// for each row of data 
+cups = 0; 
+while(result.next()) { 
+	cups += result.getInt("cups"); 
+} 
+</PRE>
+            <P>Print the total number of cups sold: <PRE> 
+System.out.println("Total sales of 
+  "+cups+" cups of coffee."); 
+</PRE>
+            <P>The output should be: <PRE> 
+Total sales of 38 cups of coffee. 
+</PRE>
+            <P>Here is the Java source for a <A 
+            href="http://developer.java.sun.com/developer/onlineTraining/Database/JDBCShortCourse/jdbc/code/JoltReport.java">complete 
+            application</A> to examine the <CODE>JoltData</CODE> table and 
+            generate the report.
+            <P><SUBSUBSECTIONLIST>
+            <H5><A name=jdnextMager>exercise</A></H5>
+            <OL>
+              <LI><FONT face="Verdana, Arial, Helvetica, sans-serif"><A 
+              href="http://developer.java.sun.com/developer/onlineTraining/Database/JDBCShortCourse/jdbc/exercises/Selecting/index.html">Selecting</A>. 
+              </FONT></LI></OL>
+            <H4><A name=jdMetaData>Obtaining Result MetaData Type 
+            Information</A></H4>
+            <P>You will occasionally need to obtain type information about the 
+            result of a query. For example, the SQL statement: <PRE> 
+SELECT * from JoltData 
+</PRE>will return a <CODE>ResultSet</CODE> with the same number of 
+            columns (and rows) as the table, <CODE>JoltData</CODE>. If you do 
+            not know how many columns there are beforehand, you must use 
+            metadata via the <CODE>ResultSetMetaData</CODE> class to find out. 
+            Continuing the <EM>Cafe Jolt</EM> scenario, determine the number and 
+            type of columns returned by the same SQL query <PRE> 
+SELECT programmer, cups FROM JoltData ORDER BY cups DESC; 
+</PRE>
+            <P>First, perform the usual <CODE>execute</CODE> method call: <PRE> 
+ResultSet result = stmt.executeQuery( 
+    "SELECT programmer, 
+    cups FROM JoltData ORDER BY cups DESC;"); 
+</PRE>
+            <P>Then obtain the column and type metadata from the 
+            <CODE>ResultSet</CODE>: <PRE> 
+ResultSetMetaData meta = result.getMetaData(); 
+</PRE>
+            <P>You can query the <CODE>ResultSetMetaData</CODE> easily to 
+            determine how many columns there are: <PRE> 
+int columns = meta.getColumnCount(); 
+</PRE>and then walk the list of columns printing out their name and 
+            type: <PRE> 
+int numbers = 0; 
+for (int i=1;i&lt;=columns;i++) { 
+  System.out.println (meta.getColumnLabel(i) + "\t" 
+                  + meta.getColumnTypeName(i)); 
+  if (meta.isSigned(i)) { // is it a signed number? 
+        numbers++; 
+  } 
+} 
+System.out.println ("Columns: " + 
+  columns + " Numeric: " + numbers); 
+</PRE>
+            <P>Here is the Java source for a <A 
+            href="http://developer.java.sun.com/developer/onlineTraining/Database/JDBCShortCourse/jdbc/code/JoltMetaData.java">complete 
+            application</A> to print out some metadata associated with the 
+            results of the query. <SUBSUBSECTIONLIST>
+            <H5><A name=jdsecMager>exercises</A> </H5>
+            <OL>
+              <LI><FONT face="Verdana, Arial, Helvetica, sans-serif"><A 
+              href="http://developer.java.sun.com/developer/onlineTraining/Database/JDBCShortCourse/jdbc/exercises/ConnectNoJDBC/index.html">Connecting 
+              to an ODBC datasource without JDBCTest</A>. </FONT>
+              <LI><FONT face="Verdana, Arial, Helvetica, sans-serif"><A 
+              href="http://developer.java.sun.com/developer/onlineTraining/Database/JDBCShortCourse/jdbc/exercises/MetaData-ing/index.html">Using 
+              MetaData</A>. </FONT></LI></OL>
+            <H3><A name=jdConnecting>Connecting a Java program to a 
+            database</A></H3>
+            <P>Currently, there are two choices for connecting your Java program 
+            to a data source. First, you can obtain a JDBC driver from your 
+            database vendor that acts as a bridge from JDBC to their database 
+            connection interface. Second, JavaSoft provides a JDBC-ODBC bridge 
+            called class <CODE>JdbcOdbcDriver</CODE> and, hence, you can connect 
+            to any ODBC data source. 
+            <P>Once you have established a JDBC database link, open a connection 
+            to that data source through a <CODE>Connection</CODE> object 
+            obtained via <CODE>DriverManager.getConnection</CODE>, which selects 
+            the appropriate driver for talking with that source. All ODBC data 
+            sources are identified via a URL in the form: <PRE> 
+jdbc:odbc:<EM>data-source-name</EM> 
+</PRE>The <CODE>getConnection</CODE> method returns a 
+            <CODE>Connection</CODE> to the specified source using the JDBC-ODBC 
+            driver. For example, to connect to an ODBC source called 
+            <CODE>mage</CODE> with a user name of <CODE>parrt</CODE> and a 
+            password of <CODE>mojava</CODE>, you would use: <PRE> 
+// load the JDBC-ODBC bridge by referencing it 
+try { 
+  Class.forName("sun.jdbc.odbc.JdbcOdbcDriver"); 
+} catch (Exception e) { 
+  System.out.println(
+    "Failed to load JDBC/ODBC driver."); 
+  return; 
+} 
+// get a connection 
+try { 
+  con = DriverManager.getConnection( 
+        "jdbc:odbc:mage", 
+        "parrt", 
+        "mojava"); 
+} catch (Exception e) { 
+  System.err.println("problems connecting to "+URL); 
+} 
+</PRE>
+            <P>Given a connection, you can create statements, execute queries, 
+            and so on. 
+            <P>See the <A 
+            href="http://developer.java.sun.com/developer/onlineTraining/Database/JDBCShortCourse/jdbc/exercises/Setup/index.html">Getting 
+            Started</A> exercise for specific information about setting up ODBC 
+            data sources on a PC. <SUBSECTIONLIST>
+            <H4><A name=jdthirdMager>Exercises</A></H4>
+            <OL>
+              <LI><FONT face="Verdana, Arial, Helvetica, sans-serif"><A 
+              href="http://developer.java.sun.com/developer/onlineTraining/Database/JDBCShortCourse/jdbc/exercises/Setup/index.html">Getting 
+              Started</A>. </FONT>
+              <LI><FONT face="Verdana, Arial, Helvetica, sans-serif"><A 
+              href="http://developer.java.sun.com/developer/onlineTraining/Database/JDBCShortCourse/jdbc/exercises/JDBCTestConnect/index.html">Using 
+              JDBCTest</A>. </FONT>
+              <LI><FONT face="Verdana, Arial, Helvetica, sans-serif"><A 
+              href="http://developer.java.sun.com/developer/onlineTraining/Database/JDBCShortCourse/jdbc/exercises/ConnectNoJDBC/index.html">Connecting 
+              to an ODBC datasource without JDBCTest</A>. </FONT></LI></OL>
+            <H3><A name=jdTalking>Talking to a Database</A></H3>
+            <P>Given a connection to a database, you can send SQL statements to 
+            manipulate that database. Using the 
+            <CODE>Connection.createStatement</CODE> method, obtain a 
+            <CODE>Statement</CODE> object and then execute method 
+            <CODE>executeQuery</CODE> or <CODE>executeUpdate</CODE>. JDBC does 
+            not put any restrictions on the SQL you send via the execute 
+            methods. but you must ensure that the data source you are connecting 
+            to supports whatever SQL you are using. To be JDBC-compliant, 
+            however, the data source must support at least SQL-2 Entry Level 
+            capabilities. 
+            <H4><A name=jdUpdates>Database Updates</A></H4>
+            <P>Assuming the variable <CODE>con</CODE> contains a valid 
+            <CODE>Connection</CODE> object obtained from the method 
+            <CODE>DriverManager.getConnection</CODE>, simple SQL update 
+            statements (SQL INSERT, UPDATE or DELETE) can be sent to your 
+            database by creating a <CODE>Statement</CODE> and then calling 
+            method <CODE>executeUpdate</CODE>. For example, to create a table 
+            called <CODE>Data</CODE> with one row of data, use the following: <PRE> 
+Statement stmt = con.createStatement(); 
+// create table with name and height columns 
+stmt.executeUpdate(
+  "create table Data (
+    name varchar (32), height integer);"); 
+stmt.executeUpdate(
+  "insert into Data values ('John', 68);"); 
+con.close();	
+// close connection, committing transaction. 
+</PRE>
+            <P>The method <CODE>executeUpdate</CODE> returns the number of rows 
+            affected with 0 for SQL statements that return nothing. 
+            <H4><A name=jdQueries>Database Queries</A></H4>
+            <P>In order to query a database (via the SQL SELECT statement), use 
+            the method <CODE>executeQuery</CODE>, which returns a 
+            <CODE>ResultSet</CODE> object. The <CODE>ResultSet</CODE> object 
+            returned is never <CODE>null</CODE> and contains the rows of data 
+            selected by the SQL statement. For example, the following code 
+            fragment selects two columns of data from our table called 
+            <CODE>Data</CODE> in ascending height order: <PRE> 
+ResultSet result = stmt.executeQuery( 
+  "SELECT name, height 
+    FROM Data ORDER BY height ASC;"); 
+</PRE>
+            <P>The rows of resulting data are accessed in order, but the 
+            elements in the various columns can be accessed in any order. 
+            However, for maximum portability among databases, JavaSoft 
+            recommends that the columns be accessed in order from left-to-right, 
+            and that each row be read only once. There is a "row cursor" in the 
+            result that points at the current row. The method 
+            <CODE>ResultSet.next</CODE> moves the cursor from row to row. Before 
+            reading the first row, call method <CODE>next</CODE> to initialize 
+            the cursor to the first row. The following code fragment shows how 
+            to read the first two rows of data and print them out. <PRE> 
+String name; 
+int height; 
+if ( result.next() ) {  // move to first row 
+  name = result.getString("name"); 
+  height = result.getInt("height");	 
+  System.out.println(name+":"+height); 
+} 
+if ( result.next() ) {	// get second row 
+  name = result.getString("name"); 
+  height = result.getInt("height");	 
+  System.out.println(name+":"+height); 
+} 
+</PRE>
+            <P>The method <CODE>next</CODE> returns <CODE>false</CODE> when 
+            another row is not available. 
+            <P>Note that column names are <EM>not</EM> case-sensitive, and if 
+            more than one column has the same name, the first one is accessed. 
+            Where possible, the column index should be used. You can ask the 
+            <CODE>ResultSet</CODE> for the index of a particular column if you 
+            do not know it beforehand. <PRE> 
+int nameCol = result.findColumn ("name"); 
+int heightCol = result.findColumn ("height"); 
+</PRE>
+            <P>Information about the properties of a <CODE>ResultSet</CODE> 
+            column is provided by the class <CODE>ResultSetMetaData</CODE> and 
+            returned by the <CODE>ResultSet.getMetaData</CODE> method. See the 
+            section on <A 
+            href="http://developer.java.sun.com/developer/onlineTraining/Database/JDBCShortCourse/jdbc/jdbc.html#jdMeta2">MetaData</A> 
+            for details. <SUBSUBSECTIONLIST>
+            <H5><A name=jdfourMager>exercises</A></H5>
+            <OL>
+              <LI><FONT face="Verdana, Arial, Helvetica, sans-serif"><A 
+              href="http://developer.java.sun.com/developer/onlineTraining/Database/JDBCShortCourse/jdbc/exercises/Selecting/index.html">Selecting</A>. 
+              </FONT>
+              <LI><FONT face="Verdana, Arial, Helvetica, sans-serif"><A 
+              href="http://developer.java.sun.com/developer/onlineTraining/Database/JDBCShortCourse/jdbc/exercises/MetaData-ing/index.html">Using 
+              MetaData</A>. </FONT></LI></OL>
+            <H4><A name=jdPrepared>Prepared Statements</A></H4>
+            <P>When performing the same operation multiple times, use a 
+            <CODE>PreparedStatement</CODE> for runtime efficiency, which is 
+            <EM>precompiled</EM> by the SQL engine (assuming your data source 
+            supports this feature). Prepared statements are also useful when you 
+            have lots of arguments to specify for a particular SQL command. 
+            <P><CODE>PreparedStatement</CODE> is an extension of 
+            <CODE>Statement</CODE> and, consequently, behaves like a 
+            <CODE>Statement</CODE> except that you create them with the method 
+            <CODE>Connection.prepareStatement</CODE>, instead of the method 
+            <CODE>Connection.createStatement</CODE>: <PRE> 
+PreparedStatement prep = con.prepareStatement( 
+    "INSERT into Data values (?, ?)"); 
+</PRE>The IN arguments, indicated by '<CODE>?</CODE>', can be filled 
+            by in by <CODE>set<EM>XXX</EM></CODE> methods. Ensure that the 
+            parameter (indicated by an index number starting from 1) you are 
+            setting matches the type of the value you are passing. For example, 
+            for a table called <CODE>Data</CODE> with two columns, 
+            <CODE>name</CODE> of type <CODE>varchar</CODE> and 
+            <CODE>height</CODE> of type <CODE>integer</CODE>, the parameters to 
+            <CODE>prep</CODE> can be set via: <PRE> 
+prep.setString(1, "Jim"); 
+prep.setInt(2, 70); 
+</PRE>
+            <P>Finally, execute the the prepared statement with the parameters 
+            set most recently via the <CODE>executeUpdate</CODE> method: <PRE> 
+if (prep.executeUpdate () != 1) { 
+    throw new Exception ("Bad Update"); 
+} 
+</PRE>
+            <P><SUBSUBSECTIONLIST>
+            <H5><A name=jdanotMager>exercise</A></H5>
+            <OL>
+              <LI><FONT face="Verdana, Arial, Helvetica, sans-serif"><A 
+              href="http://developer.java.sun.com/developer/onlineTraining/Database/JDBCShortCourse/jdbc/exercises/ComGuest/index.html">Command-Line 
+              Guestbook</A>. </FONT></LI></OL>
+            <H3><A name=jdMeta2>Metadata</A></H3>You can access information 
+            about the database as a whole, or about a particular query 
+            <CODE>ResultSet</CODE>. This section describes how 
+            <CODE>DatabaseMetaData</CODE> and <CODE>ResultSetMetaData</CODE> 
+            objects are obtained and queried. 
+            <H4><A name=jdDBInfo>Information about a database</A></H4>When you 
+            need to know about the capabilities, or the vendor, of a database, 
+            ask the associated <CODE>Connection</CODE> object for its metadata: <PRE> 
+Connection con = DriverManager.getConnection( 
+    "jdbc:odbc:mydatasource", 
+    "user", "password"); 
+DatabaseMetaData md = con.getMetaData(); 
+</PRE>
+            <P>There are many questions you can ask. For example, the following 
+            code fragment asks the database for its product name and how many 
+            simultaneous connections can be made to it. <PRE> 
+if (md==null) { 
+  System.out.println("No Database Meta Data"); 
+} else { 
+  System.out.println("Database Product Name   : " + 
+        md.getDatabaseProductName()); 
+  System.out.println("Allowable active connections: "+ 
+        md.getMaxConnections()); 
+} 
+</PRE>See the <CODE><A 
+            href="http://www.javasoft.com/products/JDK/1.1/api/java.sql.DatabaseMetaData.html">DatabaseMetaData</A></CODE> 
+            API for more information.
+            <P><SUBSUBSECTIONLIST>
+            <H5><A name=jdfifthMager>Exercises</A></H5>
+            <OL>
+              <LI><FONT face="Verdana, Arial, Helvetica, sans-serif"><A 
+              href="http://developer.java.sun.com/developer/onlineTraining/Database/JDBCShortCourse/jdbc/exercises/ConnectNoJDBC/index.html">Connecting 
+              to an ODBC datasource without JDBCTest</A>. </FONT>
+              <LI><FONT face="Verdana, Arial, Helvetica, sans-serif"><A 
+              href="http://developer.java.sun.com/developer/onlineTraining/Database/JDBCShortCourse/jdbc/exercises/Connecting/index.html">Connecting 
+              with Properties</A>. </FONT>
+              <LI><FONT face="Verdana, Arial, Helvetica, sans-serif"><A 
+              href="http://developer.java.sun.com/developer/onlineTraining/Database/JDBCShortCourse/jdbc/exercises/Exceptions/index.html">SQL 
+              Warning/Exception Handling</A>. </FONT></LI></OL>
+            <H4><A name=jdTableInfo>Information about a table within a 
+            database</A></H4>To find out the number and types of the columns in 
+            a table accessed via a <CODE>ResultSet</CODE>, obtain a 
+            <CODE>ResultSetMetaData</CODE> object. <PRE> 
+ResultSet result = ...; 
+ResultSetMetaData meta = result.getMetaData(); 
+int numbers = 0; 
+int columns = meta.getColumnCount(); 
+System.out.println ("Columns: " + columns); 
+</PRE>
+            <P><SUBSUBSECTIONLIST>
+            <H5><A name=jdnnnMager>exercise</A></H5>
+            <OL>
+              <LI><FONT face="Verdana, Arial, Helvetica, sans-serif"><A 
+              href="http://developer.java.sun.com/developer/onlineTraining/Database/JDBCShortCourse/jdbc/exercises/MetaData-ing/index.html">Using 
+              MetaData</A>. </FONT></LI></OL>
+            <H3><A name=jdTrans>Transactions</A></H3>A transaction is a set of 
+            statements that have been executed and committed or rolled back. To 
+            commit a transaction, call the method <CODE>commit</CODE> on the 
+            appropriate connection; use the <CODE>rollback</CODE> to remove all 
+            changes since the last commit. By default, all new connections are 
+            in auto-commit mode, which means that each "execute" is a complete 
+            transaction. Call <CODE>Connection.setAutoCommit</CODE> to change 
+            the default. Any locks held by a transaction are released upon the 
+            method <CODE>commit</CODE>. <PRE> 
+Connection con = DriverManager.getConnection(...); 
+con.setAutoCommit(false); 
+Statement s = con.createStatement(); 
+s.executeUpdate("<EM>SQL statement 1</EM>"); 
+s.executeUpdate("<EM>SQL statement 2</EM>"); 
+s.executeUpdate("<EM>SQL statement 3</EM>"); 
+con.commit();	
+//transaction (3 statements) committed here 
+</PRE>
+            <P>All JDBC-compliant drivers support transactions. Check the 
+            <CODE>DatabaseMetaData</CODE> associated with the appropriate 
+            connection to determine the level of transaction-support a database 
+            provides. 
+            <H3><A name=jdStoredProc>Stored Procedures</A></H3>
+            <P>A stored procedure is a block of SQL code stored in the database 
+            and executed on the server. The <CODE><A 
+            href="http://www.javasoft.com/products/JDK/1.1/api/java.sql.CallableStatement.html">CallableStatement</A></CODE> 
+            interface allows you to interact with them. Working with 
+            <CODE>CallableStatement</CODE> objects is very similar to working 
+            with <CODE>PreparedStatements</CODE>. The procedures have parameters 
+            and can return either <CODE>ResultSets</CODE> or an update count. 
+            Their parameters can be either input or output parameters. Input 
+            parameters are set via the <CODE>set<EM>XXX</EM></CODE> methods. 
+            Output parameters need to be registered via the 
+            <CODE>CallableStatement.registerOutParamter</CODE> method. Stored 
+            procedures need to be supported by the database in order to use 
+            them. You can ask the <CODE>DatabaseMetaData</CODE> if it supports 
+            it via the method <CODE>supportsStoredProcedures</CODE>. 
+            <P>To demonstrate this interaction, return to <CODE>Cafe 
+            Jolt</CODE>. And, instead of a weekly total, the manager asks for 
+            the daily total of a particular day of the week. You can create a 
+            stored procedure to help, but this is usually created by the 
+            database developer, not the applications programmer. Once the 
+            procedure is created, the user does not need to know how it works 
+            internally, just how to call it. 
+            <P>Like any other SQL statement, you need a <CODE>Connection</CODE> 
+            and a <CODE>Statement</CODE> to create the procedure: <PRE> 
+Statement stmt = con.createStatement(); 
+</PRE>Then execute the SQL statement: <PRE> 
+CREATE PROCEDURE getDailyTotal 
+     @day char(3), @dayTotal int output 
+     AS 
+     BEGIN 
+        SELECT @dayTotal = sum (cups)  
+        FROM JoltData 
+        WHERE day = @day 
+     END 
+</PRE>The Java code is: <PRE> 
+
+stmt.execute ("CREATE PROCEDURE getDailyTotal " + 
+     "@day char(3), @dayTotal int output " + 
+     "AS " + 
+     "BEGIN " + 
+     "   SELECT @dayTotal = sum (cups) " + 
+     "   FROM JoltData " + 
+     "   WHERE day = @day " + 
+     "END" 
+); 
+</PRE>Once created, you call it through a 
+            <CODE>CallableStatement</CODE>: <PRE> 
+CallableStatement cstmt = con.prepareCall (
+  "{call getDailyTotal (?, ?)}"); 
+cstmt.setString (1, "Mon"); 
+cstmt.registerOutParameter (2, java.sql.Types.INTEGER); 
+cstmt.executeUpdate(); 
+System.out.println ("Total is " + cstmt.getInt (2)); 
+</PRE>The exact syntax to create a stored procedure may differ 
+            between database vendors. Also, if there are no output parameters 
+            for the stored procedure, you can it by using a 
+            <CODE>PreparedStatement</CODE>. And, if there happens to be no input 
+            or output parameters, you can use a <CODE>Statement</CODE>. 
+            <H3><A name=jdTypeEq>Java-SQL Type Equivalence</A></H3>For each 
+            <CODE>get<EM>XXX</EM></CODE> method, the JDBC driver must convert 
+            between the database data type and a Java equivalent--the driver 
+            will not let you perform an invalid data conversion (for example, 
+            <CODE>String</CODE> to integer), but will let you get everything as 
+            a <CODE>String</CODE>. The common conversions are as follows: 
+            <P>
+            <CENTER><STRONG>Common Java - SQL Type Equivalence</STRONG> 
+            <P>
+            <TABLE border=1>
+              <TBODY>
+              <TR>
+                <TH width=150><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">Java 
+                method</FONT></TH>
+                <TH width=150><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">SQL 
+              Type</FONT></TH></TR>
+              <TR align=middle>
+                <TD><CODE>getInt</CODE></TD>
+                <TD><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">INTEGER</FONT></TD></TR>
+              <TR align=middle>
+                <TD><CODE>getLong</CODE></TD>
+                <TD><FONT face="Verdana, Arial, Helvetica, sans-serif">BIG 
+                  INT</FONT></TD></TR>
+              <TR align=middle>
+                <TD><CODE>getFloat</CODE></TD>
+                <TD><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">REAL</FONT></TD></TR>
+              <TR align=middle>
+                <TD><CODE>getDouble</CODE></TD>
+                <TD><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">FLOAT</FONT></TD></TR>
+              <TR align=middle>
+                <TD><CODE>getBignum</CODE></TD>
+                <TD><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">DECIMAL</FONT></TD></TR>
+              <TR align=middle>
+                <TD><CODE>getBoolean</CODE></TD>
+                <TD><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">BIT</FONT></TD></TR>
+              <TR align=middle>
+                <TD><CODE>getString</CODE></TD>
+                <TD><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">VARCHAR</FONT></TD></TR>
+              <TR align=middle>
+                <TD><CODE>getString</CODE></TD>
+                <TD><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">CHAR</FONT></TD></TR>
+              <TR align=middle>
+                <TD><CODE>getDate</CODE></TD>
+                <TD><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">DATE</FONT></TD></TR>
+              <TR align=middle>
+                <TD><CODE>getTime</CODE></TD>
+                <TD><FONT 
+                  face="Verdana, Arial, Helvetica, sans-serif">TIME</FONT></TD></TR>
+              <TR align=middle>
+                <TD><CODE>getTimestamp</CODE></TD>
+                <TD><FONT face="Verdana, Arial, Helvetica, sans-serif">TIME 
+                  STAMP</FONT></TD></TR>
+              <TR align=middle>
+                <TD><CODE>getObject</CODE></TD>
+                <TD><FONT face="Verdana, Arial, Helvetica, sans-serif"><EM>any 
+                  type</EM></FONT></TD></TR></TBODY></TABLE></CENTER>
+            <P>For example, given a <CODE>ResultSet</CODE> containing rows of 
+            names and dates, you can use <CODE>getString</CODE> and 
+            <CODE>getDate</CODE> to extract the information: <PRE> 
+ResultSet result = stmt.executeQuery(
+  "SELECT name, whatDay FROM ..."); 
+result.next(); 
+String name1 = result.getString("name"); 
+Date whatDay1 = result.getDate("whatDay"); 
+</PRE>
+            <H3><A name=jdSQLExceptType>JDBC Exception Types</A></H3>
+            <P>JDBC provides three types of exceptions: 
+            <UL>
+              <LI><CODE>SQLException</CODE> 
+              <LI><CODE>SQLWarning</CODE> 
+              <LI><CODE>DataTruncation</CODE> </LI></UL>
+            <H4><A name=jdSQLException>SQLExceptions</A></H4>
+            <P>The <CODE><A 
+            href="http://www.javasoft.com/products/JDK/1.1/api/java.sql.SQLException.html">SQLException</A></CODE> 
+            is the basis of all JDBC exceptions. It consists of three pieces of 
+            information, a <CODE>String</CODE> message, like all children of 
+            <CODE>Exception</CODE>, another <CODE>String</CODE> containing the 
+            XOPEN SQL state (as described by specification), and a driver/source 
+            specific <CODE>int</CODE> for an additional error code. 
+            <P>In addition, multiple <CODE>SQLException</CODE> instances can be 
+            chained together. 
+            <H4><A name=jdSQLWarning>SQLWarnings</A></H4>
+            <P>The <CODE><A 
+            href="http://www.javasoft.com/products/JDK/1.1/api/java.sql.SQLWarning.html">SQLWarning</A></CODE> 
+            class is similar to <CODE>SQLException</CODE>, however it is 
+            considered a noncritical error and is not thrown. It is up to the 
+            programmer to poll for <CODE>SQLWarning</CODE> messages through the 
+            <CODE>getWarnings</CODE> methods of <CODE>Connection</CODE>, 
+            <CODE>ResultSet</CODE>, and <CODE>Statement</CODE>. If you do not 
+            poll for them, you will never receive them. Also, the next time 
+            something is done with a <CODE>Connection</CODE>, 
+            <CODE>ResultSet</CODE>, or <CODE>Statement</CODE>, the previous 
+            warnings are cleared out. 
+            <H4><A name=jdDataTrunc>Data Truncation</A></H4>
+            <P>The <CODE><A 
+            href="http://www.javasoft.com/products/JDK/1.1/api/java.sql.DataTruncation.html">DataTruncation</A></CODE> 
+            class is a special type of <CODE>SQLWarning</CODE>. It is reported 
+            with other <CODE>SQLWarning</CODE> instances and indicates when 
+            information is lost during a read or write operation. To detect a 
+            truncation, it is necessary to perform an <CODE>instanceof 
+            DataTruncation</CODE> check on each <CODE>SQLWarning</CODE> from a 
+            <CODE>getWarnings</CODE> chain. 
+            <H4><A name=jdyetMager>Exercise</A></H4>
+            <OL>
+              <LI><FONT face="Verdana, Arial, Helvetica, sans-serif"><A 
+              href="http://developer.java.sun.com/developer/onlineTraining/Database/JDBCShortCourse/jdbc/exercises/Exceptions/index.html">SQL 
+              Warning/Exception Handling</A>.</FONT> </LI></OL>
+            <H3><A name=jdSQLConform>SQL Conformance</A></H3>
+            <P>Although SQL is a standard, not all JDBC drivers support the full 
+            ANSI92 grammar. Luckily, you can determine the level of conformance 
+            by asking. The <CODE><A 
+            href="http://www.javasoft.com/products/JDK/1.1/api/java.sql.DatabaseMetaData.html">DatabaseMetaData</A></CODE> 
+            object contains three methods that report the grammar level 
+            supported by a driver. 
+            <UL>
+              <LI><FONT 
+              face="Verdana, Arial, Helvetica, sans-serif"><CODE>supportsANSI92EntryLevelSQL</CODE><BR>All 
+              JDBC-compliant drivers must return true. </FONT>
+              <LI><CODE>supportsANSI92IntermediateSQL</CODE> 
+              <LI><CODE>supportsANSI92FullSQL</CODE> </LI></UL>
+            <P>In addition to multiple ANSI92 support levels for JDBC drivers, 
+            there are multiple SQL support levels for ODBC sources. You can 
+            determine the level of these too by asking. The 
+            <CODE>DatabaseMetaData</CODE> object contains three methods that 
+            report the grammar level supported by a database. 
+            <UL>
+              <LI><CODE>supportsMinimumSQLGrammar</CODE> 
+              <LI><CODE>supportsCoreSQLGrammar</CODE> 
+              <LI><CODE>supportsExtendedSQLGrammar</CODE> </LI></UL>
+            <P>These levels determine which specific SQL operations, or which 
+            options of those operations, you can perform.
+            <P>Also, when using the JDBC-ODBC bridge, the ODBC driver can 
+            further restrict your capabilities; for instance, you cannot use 
+            prepared statements with the Text File ODBC Driver. 
+            <P>Based upon the levels available, it may be beneficial to provide 
+            alternative execution paths for certain operations. For instance, 
+            when populating a table with values from another table, the core SQL 
+            grammar permits a <CODE>SELECT</CODE> clause as part of the 
+            <CODE>INSERT</CODE> clause. This would be much quicker than 
+            performing a select loop with an insert for each record, which is 
+            necessary if you are relying on the minimum SQL grammar. 
+            <H4><A name=jdzzzMager>Exercise</A></H4>
+            <OL>
+              <LI><FONT face="Verdana, Arial, Helvetica, sans-serif"><A 
+              href="http://developer.java.sun.com/developer/onlineTraining/Database/JDBCShortCourse/jdbc/exercises/Exceptions/index.html">SQL 
+              Warning/Exception Handling</A>. </FONT></LI></OL>
+            <H3><A name=jdEnterprise>Enterprise APIs</A></H3>JDBC is just one 
+            part of what JavaSoft calls the <EM>Java Enterprise APIs</EM>. The 
+            remaining three parts are Remote Method Invocation (RMI) for 
+            Java-to-Java communications, via RPC-like calls, Java IDL for 
+            Java-to-CORBA connectivity through OMG's Interface Definition 
+            Language specification, and Java Naming and Directory Interface 
+            (JNDI) for directory services support. Closely related is Java 
+            Object Serialization, which permits programs to send objects across 
+            streams for persistence. 
+            <UL>
+              <LI><FONT face="Verdana, Arial, Helvetica, sans-serif"><A 
+              href="http://www.javasoft.com/products/jdk/1.1/docs/guide/rmi/index.html">RMI</A> 
+              </FONT>
+              <LI><FONT face="Verdana, Arial, Helvetica, sans-serif"><A 
+              href="http://java.sun.com/products/jdk/1.1/docs/guide/serialization/index.html">Serialization</A> 
+              </FONT>
+              <LI><FONT face="Verdana, Arial, Helvetica, sans-serif"><A 
+              href="http://java.sun.com/products/jdk/idl/docs/JavaIDLspecification.html">Java 
+              IDL</A> </FONT>
+              <LI><FONT face="Verdana, Arial, Helvetica, sans-serif"><A 
+              href="http://www.javasoft.com/products/jndi/index.html">JNDI</A> 
+              </FONT></LI></UL>
+            <H3><A name=jdResources>Resources</A></H3>Some web-based resources: 
+            <UL>
+              <LI><FONT face="Verdana, Arial, Helvetica, sans-serif"><A 
+              href="http://www.javasoft.com/products/jdk/1.1/docs/guide/jdbc/getstart/introTOC.doc.html">JDBC 
+              Guide</A> </FONT>
+              <LI><FONT face="Verdana, Arial, Helvetica, sans-serif"><A 
+              href="http://splash.javasoft.com/jdbc/">JDBC Home</A> 
+            </FONT></LI></UL>and books: 
+            <UL>
+              <LI><FONT face="Verdana, Arial, Helvetica, sans-serif"><EM>Java 
+              Database Programming with JDBC</EM> by Prantik Patel and Karl Moss 
+              (Coriolis Group ISBN 1-57610-056-1) </FONT>
+              <LI><FONT 
+              face="Verdana, Arial, Helvetica, sans-serif"><EM>Database 
+              Programming with JDBC and Java</EM> by George Reese (O'Reilly ISBN 
+              1-56592-270-0) </FONT></LI></UL>
+            <H6 align=right>Copyright © 1996 <A href="http://www.magelang.com/" 
+            target=_blank>MageLang Institute</A>. All Rights 
+            Reserved.</H6></FONT></TD></TR></TBODY></TABLE><!-- ================ --><!-- End Main Content --><!-- ================ --></FONT></TD></TR></TBODY></TABLE><!-- Copyright Insert --><BR 
+clear=all>
+<FORM action=/cgi-bin/search.cgi method=post>
+<TABLE border=0 cellPadding=0 cellSpacing=5 width="100%">
+  <TBODY>
+  <TR>
+    <TD vAlign=bottom></TD></TR><A 
+  href="http://developer.java.sun.com/servlet/PrintPageServlet"><IMG 
+  alt="Print Button" border=0 height=25 
+  src="JDBC Short Course Java Database Programming_archivos/printbutton.gif" 
+  width=155></A> 
+  <CENTER><FONT color=#999999 face="Verdana, Arial, Helvetica, sans-serif" 
+  size=-1>[ This page was updated: <!-- new date -->3-Nov-2000 ] 
+  </FONT></CENTER></TD></TR>
+  <TR>
+    <TD bgColor=#cccccc><IMG alt="" height=1 
+      src="JDBC Short Course Java Database Programming_archivos/pixel.gif" 
+      width=1></TD></TR>
+  <TR>
+    <TD>
+      <CENTER><FONT face="Verdana, Arial, Helvetica, sans-serif" size=-2><A 
+      href="http://java.sun.com/products/">Products &amp; APIs</A> | <A 
+      href="http://developer.java.sun.com/developer/index.html">Developer 
+      Connection</A> | <A 
+      href="http://developer.java.sun.com/developer/infodocs/index.shtml">Docs 
+      &amp; Training</A> | <A 
+      href="http://developer.java.sun.com/developer/support/index.html">Online 
+      Support</A><BR><A 
+      href="http://developer.java.sun.com/developer/community/index.html">Community 
+      Discussion</A> | <A href="http://java.sun.com/industry/">Industry News</A> 
+      | <A href="http://java.sun.com/solutions">Solutions Marketplace</A> | <A 
+      href="http://java.sun.com/casestudies">Case Studies</A> 
+  </FONT></CENTER></TD></TR>
+  <TR>
+    <TD bgColor=#cccccc><IMG alt="" height=1 
+      src="JDBC Short Course Java Database Programming_archivos/pixel.gif" 
+      width=1></TD></TR><!--  removed per Gregg Chirlin
+  <TR>
+    <TD ALIGN="CENTER">
+    <FONT SIZE="-2" FACE="Verdana, Arial, Helvetica, sans-serif">
+    <A HREF="http://java.sun.com/docs/glossary.html">Glossary</A> - 
+    <A HREF="http://java.sun.com/applets/">Applets</A> - 
+    <A HREF="http://java.sun.com/docs/books/tutorial/">Tutorial</A> - 
+    EF="http://java.sun.com/docs/glossary.html">Glossary</A> -
+    <A HREF="http://java.sun.com/nav/business/">Business &amp; Licensing</A> - 
+    <A HREF="http://java.sun.com/javastore/">Java Store</A> -
+    <A HREF="http://java.sun.com/casestudies/">Java in the Real World</A>
+    </FONT>
+    </TD>
+  </TR>
+-->
+  <TR>
+    <TD>
+      <CENTER><FONT face="Verdana, Arial, Helvetica, sans-serif" size=-2><A 
+      href="http://java.sun.com/docs/glossary.html">Glossary</A> | <A 
+      href="http://developer.java.sun.com/feedback/index.html">Feedback</A> | <A 
+      href="http://java.sun.com/a-z/index.html">A-Z Index</A> 
+  </FONT></CENTER></TD></TR>
+  <TR>
+    <TD>
+      <TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+        <TBODY>
+        <TR>
+          <TD width="50%"><FONT face="Verdana, Arial, Helvetica, sans-serif" 
+            size=-2>For more information on Java technology<BR>and other 
+            software from Sun Microsystems, call:<BR></FONT><FONT 
+            face="Verdana, Arial, Helvetica, sans-serif" size=-1>(800) 
+            786-7638<BR></FONT><FONT 
+            face="Verdana, Arial, Helvetica, sans-serif" size=-2>Outside the 
+            U.S. and Canada, dial your country's <A 
+            href="http://www.att.com/tollfree/international/dialguide/">AT&amp;T&nbsp;Direct&nbsp;Access&nbsp;Number</A> 
+            first.<BR></FONT></TD>
+          <TD align=right width="50%"><A href="http://www.sun.com/"><IMG 
+            alt="Sun Microsystems, Inc." border=0 height=30 
+            src="JDBC Short Course Java Database Programming_archivos/lgsun.gif" 
+            width=64></A><BR><FONT face="Verdana, Arial, Helvetica, sans-serif" 
+            size=-2>Copyright © 1995-2000 <A href="http://www.sun.com/">Sun 
+            Microsystems, Inc.</A><BR>All Rights Reserved. <A 
+            href="http://www.sun.com/share/text/termsofuse.html">Terms of 
+            Use</A>. <A 
+            href="http://www.sun.com/privacy/">Privacy&nbsp;Policy</A>. 
+          </FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></FORM><!-- End Copyright Insert --></BODY></HTML>
